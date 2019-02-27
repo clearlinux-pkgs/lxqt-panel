@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x42C9C8D3AF5EA5E3 (agaida@siduction.org)
 #
 Name     : lxqt-panel
-Version  : 0.14.0
-Release  : 1
-URL      : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.0/lxqt-panel-0.14.0.tar.xz
-Source0  : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.0/lxqt-panel-0.14.0.tar.xz
-Source99 : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.0/lxqt-panel-0.14.0.tar.xz.asc
+Version  : 0.14.1
+Release  : 2
+URL      : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz
+Source0  : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz
+Source99 : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz.asc
 Summary  : The LXQt desktop panel
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -51,7 +51,6 @@ Summary: bin components for the lxqt-panel package.
 Group: Binaries
 Requires: lxqt-panel-data = %{version}-%{release}
 Requires: lxqt-panel-license = %{version}-%{release}
-Requires: lxqt-panel-man = %{version}-%{release}
 
 %description bin
 bin components for the lxqt-panel package.
@@ -71,7 +70,9 @@ Group: Development
 Requires: lxqt-panel-lib = %{version}-%{release}
 Requires: lxqt-panel-bin = %{version}-%{release}
 Requires: lxqt-panel-data = %{version}-%{release}
+Requires: lxqt-panel-man = %{version}-%{release}
 Provides: lxqt-panel-devel = %{version}-%{release}
+Requires: lxqt-panel = %{version}-%{release}
 
 %description dev
 dev components for the lxqt-panel package.
@@ -104,14 +105,14 @@ man components for the lxqt-panel package.
 
 
 %prep
-%setup -q -n lxqt-panel-0.14.0
+%setup -q -n lxqt-panel-0.14.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549463855
+export SOURCE_DATE_EPOCH=1551233746
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -DCPULOAD_PLUGIN=false -DNETWORKMONITOR_PLUGIN=false
@@ -119,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549463855
+export SOURCE_DATE_EPOCH=1551233746
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
 cp LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/LICENSE
@@ -162,6 +163,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_pl.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ca.qm
@@ -591,6 +593,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_da.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_de.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_gl.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_id.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_pl.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_pt_BR.qm
