@@ -6,11 +6,11 @@
 #
 Name     : lxqt-panel
 Version  : 0.14.1
-Release  : 3
-URL      : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz
-Source0  : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz
-Source99 : https://downloads.lxqt.org/downloads/lxqt-panel/0.14.1/lxqt-panel-0.14.1.tar.xz.asc
-Summary  : The LXQt desktop panel
+Release  : 4
+URL      : https://github.com/lxqt/lxqt-panel/releases/download/0.14.1/lxqt-panel-0.14.1.tar.xz
+Source0  : https://github.com/lxqt/lxqt-panel/releases/download/0.14.1/lxqt-panel-0.14.1.tar.xz
+Source1  : https://github.com/lxqt/lxqt-panel/releases/download/0.14.1/lxqt-panel-0.14.1.tar.xz.asc
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: lxqt-panel-bin = %{version}-%{release}
@@ -23,9 +23,11 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(libpulse)
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libdbusmenu-dev
 BuildRequires : libdbusmenu-qt-dev
+BuildRequires : liblxqt-data
 BuildRequires : liblxqt-dev
 BuildRequires : libsysstat-dev
 BuildRequires : lm-sensors-dev
@@ -35,8 +37,11 @@ BuildRequires : pkg-config
 BuildRequires : pkgconfig(xcomposite)
 BuildRequires : pkgconfig(xdamage)
 BuildRequires : pkgconfig(xrender)
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
+BuildRequires : qtx11extras-dev
+BuildRequires : solid-dev
 
 %description
 # lxqt-panel
@@ -70,7 +75,6 @@ Group: Development
 Requires: lxqt-panel-lib = %{version}-%{release}
 Requires: lxqt-panel-bin = %{version}-%{release}
 Requires: lxqt-panel-data = %{version}-%{release}
-Requires: lxqt-panel-man = %{version}-%{release}
 Provides: lxqt-panel-devel = %{version}-%{release}
 Requires: lxqt-panel = %{version}-%{release}
 
@@ -106,24 +110,30 @@ man components for the lxqt-panel package.
 
 %prep
 %setup -q -n lxqt-panel-0.14.1
+cd %{_builddir}/lxqt-panel-0.14.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551233746
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1598295585
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake .. -DCPULOAD_PLUGIN=false -DNETWORKMONITOR_PLUGIN=false
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551233746
+export SOURCE_DATE_EPOCH=1598295585
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
-cp LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/LICENSE
+cp %{_builddir}/lxqt-panel-0.14.1/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
@@ -676,7 +686,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/lxqt-panel/LICENSE
+/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 
 %files man
 %defattr(0644,root,root,0755)
