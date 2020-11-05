@@ -5,3 +5,4 @@ lm-sensors-dev
 libsysstat-dev
 libdbusmenu-dev
 libdbusmenu-qt-dev
+lxqt-globalkeys-dev
