@@ -6,7 +6,7 @@
 #
 Name     : lxqt-panel
 Version  : 0.16.1
-Release  : 7
+Release  : 8
 URL      : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz
 Source0  : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz
 Source1  : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz.asc
@@ -24,7 +24,7 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(libpulse)
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : kwindowsystem-dev
-BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
+BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libdbusmenu-dev
 BuildRequires : libdbusmenu-qt-dev
 BuildRequires : liblxqt-data
