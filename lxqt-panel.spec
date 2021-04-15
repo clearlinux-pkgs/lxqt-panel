@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-panel
-Version  : 0.16.1
-Release  : 8
-URL      : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz
-Source0  : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz
-Source1  : https://github.com/lxqt/lxqt-panel/releases/download/0.16.1/lxqt-panel-0.16.1.tar.xz.asc
+Version  : 0.17.0
+Release  : 9
+URL      : https://github.com/lxqt/lxqt-panel/releases/download/0.17.0/lxqt-panel-0.17.0.tar.xz
+Source0  : https://github.com/lxqt/lxqt-panel/releases/download/0.17.0/lxqt-panel-0.17.0.tar.xz
+Source1  : https://github.com/lxqt/lxqt-panel/releases/download/0.17.0/lxqt-panel-0.17.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -27,7 +27,6 @@ BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libdbusmenu-dev
 BuildRequires : libdbusmenu-qt-dev
-BuildRequires : liblxqt-data
 BuildRequires : liblxqt-dev
 BuildRequires : libsysstat-dev
 BuildRequires : lm-sensors-dev
@@ -109,15 +108,15 @@ man components for the lxqt-panel package.
 
 
 %prep
-%setup -q -n lxqt-panel-0.16.1
-cd %{_builddir}/lxqt-panel-0.16.1
+%setup -q -n lxqt-panel-0.17.0
+cd %{_builddir}/lxqt-panel-0.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604610788
+export SOURCE_DATE_EPOCH=1618511655
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -130,10 +129,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604610788
+export SOURCE_DATE_EPOCH=1618511655
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
-cp %{_builddir}/lxqt-panel-0.16.1/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-panel-0.17.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
@@ -167,27 +166,10 @@ popd
 /usr/share/lxqt/lxqt-panel/volume.desktop
 /usr/share/lxqt/lxqt-panel/worldclock.desktop
 /usr/share/lxqt/panel.conf
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_arn.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ast.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ca.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_cs.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_cy.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_da.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_de.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_gl.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_hu.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ja.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_nb_NO.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_nl.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_pl.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_pt_BR.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ru.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_sk_SK.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_sv.qm
-/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_cy.qm
@@ -198,6 +180,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_es.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_es_UY.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_et.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_fr.qm
@@ -218,6 +201,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_si.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/desktopswitch/desktopswitch_sr@latin.qm
@@ -232,6 +216,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_cy.qm
@@ -239,6 +224,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_de.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_el.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_es.qm
+/usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_et.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_he.qm
@@ -254,6 +240,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_pl.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_si.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_sv.qm
 /usr/share/lxqt/translations/lxqt-panel/directorymenu/directorymenu_tr.qm
@@ -262,6 +249,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_cy.qm
@@ -269,6 +257,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_de.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_el.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_es.qm
+/usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_et.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_he.qm
@@ -283,14 +272,17 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_pl.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_si.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_sv.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_zh_CN.qm
+/usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_zh_TW.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/lxqt-panel_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_cy.qm
@@ -302,6 +294,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_es.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_es_UY.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/lxqt-panel_et.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_fa.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_fi.qm
@@ -323,6 +316,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/lxqt-panel_si.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/lxqt-panel_sr@latin.qm
@@ -337,6 +331,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_cy.qm
@@ -347,6 +342,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_es.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_es_UY.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_et.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_fr.qm
@@ -362,11 +358,13 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_nl.qm
+/usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_oc.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_pl.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_si.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/mainmenu/mainmenu_sr@latin.qm
@@ -380,6 +378,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/mount/mount_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_cy.qm
@@ -390,6 +389,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_es.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_es_UY.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/mount/mount_et.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_fr.qm
@@ -410,6 +410,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/mount/mount_si.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_sr@latin.qm
@@ -423,6 +424,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_cy.qm
@@ -432,6 +434,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_eo.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_es.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_et.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_fr.qm
@@ -452,6 +455,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_si.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_sr@latin.qm
@@ -465,6 +469,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/sensors/sensors_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_cy.qm
@@ -473,6 +478,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_el.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_es.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/sensors/sensors_et.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_fr.qm
@@ -491,6 +497,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/sensors/sensors_si.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_th_TH.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_tr.qm
@@ -500,6 +507,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_cy.qm
@@ -509,6 +517,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_eo.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_es.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_et.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_fr.qm
@@ -529,6 +538,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_si.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/showdesktop/showdesktop_sr@latin.qm
@@ -542,6 +552,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/spacer/spacer_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_cy.qm
@@ -549,6 +560,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_de.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_el.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_es.qm
+/usr/share/lxqt/translations/lxqt-panel/spacer/spacer_et.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_he.qm
@@ -563,30 +575,39 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_pl.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/spacer/spacer_si.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_sk.qm
-/usr/share/lxqt/translations/lxqt-panel/spacer/spacer_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_zh_CN.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_cy.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_da.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_de.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_et.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_he.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_hu.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_it.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_nl.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_pl.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_pt.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_si.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_tr.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_zh_TW.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_cy.qm
@@ -594,6 +615,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_de.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_el.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_es.qm
+/usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_et.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_he.qm
@@ -609,6 +631,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_si.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_uk.qm
@@ -616,6 +639,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_cy.qm
@@ -625,6 +649,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_eo.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_es.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_et.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_fr.qm
@@ -645,6 +670,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_si.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_sr@latin.qm
@@ -657,12 +683,15 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_zh_TW.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_cy.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_da.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_de.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_es.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_et.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_he.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_hr.qm
@@ -670,16 +699,21 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_id.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_it.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_nl.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_pl.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_ru_RU.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_si.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/tray/tray_tr.qm
+/usr/share/lxqt/translations/lxqt-panel/tray/tray_zh_Hans.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ast.qm
+/usr/share/lxqt/translations/lxqt-panel/volume/volume_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_cs.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_cy.qm
@@ -689,6 +723,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_eo.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_es.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_es_VE.qm
+/usr/share/lxqt/translations/lxqt-panel/volume/volume_et.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_eu.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_fr.qm
@@ -707,6 +742,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/volume/volume_si.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_sl.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_sv.qm
@@ -726,6 +762,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_de.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_el.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_es.qm
+/usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_et.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_gl.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_he.qm
@@ -741,6 +778,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_pt.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_ru.qm
+/usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_si.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_uk.qm
