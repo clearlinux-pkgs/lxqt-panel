@@ -1,5 +1,5 @@
 PKG_NAME := lxqt-panel
-URL = https://github.com/lxqt/lxqt-panel/releases/download/0.17.1/lxqt-panel-0.17.1.tar.xz
+URL = https://github.com/lxqt/lxqt-panel/releases/download/1.0.0/lxqt-panel-1.0.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
