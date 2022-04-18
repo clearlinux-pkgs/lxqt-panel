@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-panel
-Version  : 1.0.0
-Release  : 13
-URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.0.0/lxqt-panel-1.0.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.0.0/lxqt-panel-1.0.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.0.0/lxqt-panel-1.0.0.tar.xz.asc
+Version  : 1.1.0
+Release  : 14
+URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz
+Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz
+Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -24,7 +24,6 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(libpulse)
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : kwindowsystem-dev
-BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libdbusmenu-dev
 BuildRequires : libdbusmenu-qt-dev
 BuildRequires : liblxqt-dev
@@ -33,9 +32,7 @@ BuildRequires : lm-sensors-dev
 BuildRequires : lxqt-build-tools
 BuildRequires : lxqt-globalkeys-dev
 BuildRequires : pkg-config
-BuildRequires : pkgconfig(xcomposite)
-BuildRequires : pkgconfig(xdamage)
-BuildRequires : pkgconfig(xrender)
+BuildRequires : pkgconfig(xtst)
 BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
@@ -108,15 +105,15 @@ man components for the lxqt-panel package.
 
 
 %prep
-%setup -q -n lxqt-panel-1.0.0
-cd %{_builddir}/lxqt-panel-1.0.0
+%setup -q -n lxqt-panel-1.1.0
+cd %{_builddir}/lxqt-panel-1.1.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636134557
+export SOURCE_DATE_EPOCH=1650312097
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,10 +126,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1636134557
+export SOURCE_DATE_EPOCH=1650312097
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
-cp %{_builddir}/lxqt-panel-1.0.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-panel-1.1.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
@@ -167,6 +164,11 @@ popd
 /usr/share/lxqt/lxqt-panel/volume.desktop
 /usr/share/lxqt/lxqt-panel/worldclock.desktop
 /usr/share/lxqt/panel.conf
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_fr.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_he.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_it.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ko.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_nl.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_cs.qm
@@ -177,10 +179,12 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_et.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_fi.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_fr.qm
+/usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_he.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_hr.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_hu.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_it.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_nb_NO.qm
@@ -298,6 +302,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_id.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_it.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/kbindicator/kbindicator_nb_NO.qm
@@ -528,6 +533,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_id.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_it.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/sensors/sensors_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/sensors/sensors_nb_NO.qm
@@ -610,6 +616,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_id.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_it.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/spacer/spacer_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_nb_NO.qm
@@ -638,6 +645,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_hu.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_it.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_nb_NO.qm
@@ -669,6 +677,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_id.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_it.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_nb_NO.qm
@@ -728,37 +737,6 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_zh_CN.qm
 /usr/share/lxqt/translations/lxqt-panel/taskbar/taskbar_zh_TW.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_arn.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_ast.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_bg.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_ca.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_cs.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_cy.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_da.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_de.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_es.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_et.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_fr.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_gl.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_he.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_hr.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_hu.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_id.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_it.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_ja.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_lt.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_lv.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_nb_NO.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_nl.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_pl.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_pt.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_pt_BR.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_ru_RU.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_si.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_sk_SK.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_tr.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_uk.qm
-/usr/share/lxqt/translations/lxqt-panel/tray/tray_zh_Hans.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ast.qm
@@ -783,6 +761,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_id.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_it.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/volume/volume_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/volume/volume_nb_NO.qm
@@ -821,6 +800,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_id.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_it.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_ja.qm
+/usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_lv.qm
 /usr/share/lxqt/translations/lxqt-panel/worldclock/worldclock_nb_NO.qm
