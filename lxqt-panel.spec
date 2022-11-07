@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-panel
-Version  : 1.1.0
-Release  : 14
-URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz.asc
+Version  : 1.2.0
+Release  : 15
+URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz
+Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz
+Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -105,15 +105,15 @@ man components for the lxqt-panel package.
 
 
 %prep
-%setup -q -n lxqt-panel-1.1.0
-cd %{_builddir}/lxqt-panel-1.1.0
+%setup -q -n lxqt-panel-1.2.0
+cd %{_builddir}/lxqt-panel-1.2.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650312097
+export SOURCE_DATE_EPOCH=1667856556
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,10 +126,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650312097
+export SOURCE_DATE_EPOCH=1667856556
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
-cp %{_builddir}/lxqt-panel-1.1.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-panel-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d || :
 pushd clr-build
 %make_install
 popd
@@ -164,11 +164,16 @@ popd
 /usr/share/lxqt/lxqt-panel/volume.desktop
 /usr/share/lxqt/lxqt-panel/worldclock.desktop
 /usr/share/lxqt/panel.conf
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ar.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_et.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_he.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_it.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ko.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_lt.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_nl.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_pt.qm
+/usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_bg.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/customcommand/customcommand_cs.qm
@@ -629,6 +634,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/spacer/spacer_zh_CN.qm
+/usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_ast.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_bg.qm
@@ -658,6 +664,7 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_tr.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/statusnotifier/statusnotifier_zh_TW.qm
+/usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_ast.qm
 /usr/share/lxqt/translations/lxqt-panel/sysstat/sysstat_bg.qm
