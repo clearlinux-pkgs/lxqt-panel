@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-panel
-Version  : 1.2.0
-Release  : 15
-URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.0/lxqt-panel-1.2.0.tar.xz.asc
+Version  : 1.2.1
+Release  : 16
+URL      : https://github.com/lxqt/lxqt-panel/releases/download/1.2.1/lxqt-panel-1.2.1.tar.xz
+Source0  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.1/lxqt-panel-1.2.1.tar.xz
+Source1  : https://github.com/lxqt/lxqt-panel/releases/download/1.2.1/lxqt-panel-1.2.1.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -38,14 +38,14 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
 BuildRequires : qtx11extras-dev
 BuildRequires : solid-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
-# lxqt-panel
-## Overview
-`lxqt-panel` represents the taskbar of LXQt.
-The elements available in lxqt-panel are called "plugin" technically. This applies e. g. to the source code where they reside in directories `./plugin-<plugin>` like `plugin-mainmenu`. In contrast to this they are called "widgets" by the configuration GUI so far. Also, a more descriptive term is used to refer to distinct plugins within the GUI. E. g. the aforementioned `plugin-mainmenu` is called "Application menu" that way.
-Configuration dialogue "Add Plugins", see [below](https://github.com/lxqt/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.
-Notes on some of the plugins, sorted by terms used within the GUI in alphabetical order, technical term in parenthesis:
+These type of eye are grabbed from the project gnome-applet and its derived
+mate-applet.
+The only exception is the Crystal 'eye' which is grabbed from
 
 %package bin
 Summary: bin components for the lxqt-panel package.
@@ -105,28 +105,28 @@ man components for the lxqt-panel package.
 
 
 %prep
-%setup -q -n lxqt-panel-1.2.0
-cd %{_builddir}/lxqt-panel-1.2.0
+%setup -q -n lxqt-panel-1.2.1
+cd %{_builddir}/lxqt-panel-1.2.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667856556
+export SOURCE_DATE_EPOCH=1672684091
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake .. -DCPULOAD_PLUGIN=false -DNETWORKMONITOR_PLUGIN=false
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667856556
+export SOURCE_DATE_EPOCH=1672684091
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-panel
 cp %{_builddir}/lxqt-panel-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-panel/7fab4cd4eb7f499d60fe183607f046484acd6e2d || :
@@ -153,6 +153,7 @@ popd
 /usr/share/lxqt/lxqt-panel/kbindicator.desktop
 /usr/share/lxqt/lxqt-panel/mainmenu.desktop
 /usr/share/lxqt/lxqt-panel/mount.desktop
+/usr/share/lxqt/lxqt-panel/qeyes.desktop
 /usr/share/lxqt/lxqt-panel/quicklaunch.desktop
 /usr/share/lxqt/lxqt-panel/sensors.desktop
 /usr/share/lxqt/lxqt-panel/showdesktop.desktop
@@ -164,10 +165,52 @@ popd
 /usr/share/lxqt/lxqt-panel/volume.desktop
 /usr/share/lxqt/lxqt-panel/worldclock.desktop
 /usr/share/lxqt/panel.conf
+/usr/share/lxqt/panel/qeyes-types/Bizarre/Bizarre-eye.png
+/usr/share/lxqt/panel/qeyes-types/Bizarre/Bizarre-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Bizarre/config
+/usr/share/lxqt/panel/qeyes-types/Bloodshot/Bloodshot-eye.png
+/usr/share/lxqt/panel/qeyes-types/Bloodshot/Bloodshot-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Bloodshot/config
+/usr/share/lxqt/panel/qeyes-types/Brown-EyedGirl/brown-eye.png
+/usr/share/lxqt/panel/qeyes-types/Brown-EyedGirl/brown-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Brown-EyedGirl/config
+/usr/share/lxqt/panel/qeyes-types/Crystal/config
+/usr/share/lxqt/panel/qeyes-types/Crystal/crystal-eye.svg
+/usr/share/lxqt/panel/qeyes-types/Crystal/crystal-pupil.svg
+/usr/share/lxqt/panel/qeyes-types/Default-tiny/Default-tiny-eye.png
+/usr/share/lxqt/panel/qeyes-types/Default-tiny/Default-tiny-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Default-tiny/config
+/usr/share/lxqt/panel/qeyes-types/Default/Default-eye.png
+/usr/share/lxqt/panel/qeyes-types/Default/Default-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Default/config
+/usr/share/lxqt/panel/qeyes-types/Digital/Digital-eye.png
+/usr/share/lxqt/panel/qeyes-types/Digital/Digital-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Digital/config
+/usr/share/lxqt/panel/qeyes-types/EyelashLarge/config
+/usr/share/lxqt/panel/qeyes-types/EyelashLarge/eye.png
+/usr/share/lxqt/panel/qeyes-types/EyelashLarge/pupil.png
+/usr/share/lxqt/panel/qeyes-types/Green-EyedGirl/config
+/usr/share/lxqt/panel/qeyes-types/Green-EyedGirl/green-eye.png
+/usr/share/lxqt/panel/qeyes-types/Green-EyedGirl/green-pupil.png
+/usr/share/lxqt/panel/qeyes-types/Horrid/config
+/usr/share/lxqt/panel/qeyes-types/Horrid/horrid_eye.png
+/usr/share/lxqt/panel/qeyes-types/Horrid/horrid_pupil.png
+/usr/share/lxqt/panel/qeyes-types/Pink-EyedGirl/config
+/usr/share/lxqt/panel/qeyes-types/Pink-EyedGirl/pink-eye.png
+/usr/share/lxqt/panel/qeyes-types/Pink-EyedGirl/pink-pupil.png
+/usr/share/lxqt/panel/qeyes-types/PumpkinMonster/config
+/usr/share/lxqt/panel/qeyes-types/PumpkinMonster/eye.png
+/usr/share/lxqt/panel/qeyes-types/PumpkinMonster/pupil.png
+/usr/share/lxqt/panel/qeyes-types/README
+/usr/share/lxqt/panel/qeyes-types/Tango/config
+/usr/share/lxqt/panel/qeyes-types/Tango/tango-eye.png
+/usr/share/lxqt/panel/qeyes-types/Tango/tango-pupil.png
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ar.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ca.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_et.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_fr.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_he.qm
+/usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_hr.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_it.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_ko.qm
 /usr/share/lxqt/translations/lxqt-panel/colorpicker/colorpicker_lt.qm
@@ -469,6 +512,8 @@ popd
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_uk.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_zh_CN.qm
 /usr/share/lxqt/translations/lxqt-panel/mount/mount_zh_TW.qm
+/usr/share/lxqt/translations/lxqt-panel/qeyes/qeyes_fr.qm
+/usr/share/lxqt/translations/lxqt-panel/qeyes/qeyes_it.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ar.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_arn.qm
 /usr/share/lxqt/translations/lxqt-panel/quicklaunch/quicklaunch_ast.qm
@@ -837,6 +882,7 @@ popd
 /usr/lib64/lxqt-panel/libdirectorymenu.so
 /usr/lib64/lxqt-panel/libkbindicator.so
 /usr/lib64/lxqt-panel/libmount.so
+/usr/lib64/lxqt-panel/libqeyes.so
 /usr/lib64/lxqt-panel/libsensors.so
 /usr/lib64/lxqt-panel/libsysstat.so
 /usr/lib64/lxqt-panel/libvolume.so
